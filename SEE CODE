@@ -1,0 +1,140 @@
+const chalk = require('chalk');
+
+
+
+const cyan1=chalk.bold.bgCyan
+const red1 = chalk.bold.red;
+const red = chalk.bold.bgRed
+const yellow = chalk.bold.yellow
+const yellow1=chalk.bold.bgYellow
+const blue = chalk.bold.blueBright
+const green1=chalk.bold.bgGreenBright
+const green = chalk.bold.green
+const cyan =chalk.bold.cyanBright
+const magenta=chalk.bold.magentaBright
+const magenta1=chalk.bold.bgMagenta
+var score=0
+
+var readlinesync = require('readline-sync')
+
+
+
+var UserName = readlinesync.question(red(" WHAT'S YOUR NAME ?"))
+console.log( ) 
+
+console.log( cyan1(" HELLO!!") +"\t"+ cyan(  UserName )+"\n")
+
+console.log(green("Welcome to DO YOU KNOW ME ?? ")+"\n")
+
+console.log(cyan("To play this , you'll need a password "))
+console.log(magenta("     hint: X is an odd number. Take an alphabet away from X and it becomes even. Which is that number? \n"))
+
+var userans1 = readlinesync.question("enter the password : \n " , {
+  hideEchoBack: true , trueValue:["seven","7","SEVEN","Seven"] }   )
+
+
+if(userans1===true){
+
+  console.log(cyan("YAY !!") + yellow("  You cracked it ,let's move ahead \n"))
+
+  function play(question,answer){
+
+var UserAnswer = readlinesync.question(question + "\n")
+
+if (UserAnswer.toUpperCase()===answer.toUpperCase()){
+  console.log(green(" You are right \n"));
+  score++;
+  console.log(cyan("Your current score is : ") + green(score) + "\n");
+}
+  else{
+    console.log(red1(" You are wrong "));
+    console.log(cyan("Your current score is : ") + red(score))
+  }
+
+}
+
+var questions=[
+   {
+      question : "Which year is my Birthyear ?? ",
+      answer : "2002",
+    },
+    {
+      question : "Which is my favourite subject ??  ",
+      answer : "maths",
+    },
+    {
+      question : "which is my favourite actress ??  ",
+      answer : "jennifer lawrence" ,
+    },
+    {
+      question : "which is my favourite festival  ??  ",
+      answer : "holi",
+    },
+    {
+      question : "whats my favourite sport ??  ",
+      answer : "cricket",
+    },
+     {
+      question : "whats my favourite cricketer ??  ",
+      answer : "rohit sharma",
+    }
+    
+
+
+]
+
+for( var i=0;i<questions.length;i++){
+
+play(questions[i].question,questions[i].answer)
+  
+}
+
+if(score<2)
+{ 
+  console.log(red(" OOPS !! your final  score is "+ score +"\n"+ "WE NEED TO IMPROVE OUR CONNECTION\n\n"))
+}
+
+var scores=[
+
+  {
+    name:"Junaid",
+    hisScore:"4",
+
+  },
+  {
+    name:"vishal",
+    hisScore:"3",
+  }
+]
+console.log( )
+console.log(cyan1("HighScores"))
+for(i=0;i<scores.length;i++)
+{
+  var currentScorer=scores[i]
+
+  console.log(currentScorer.name)
+  console.log(currentScorer.hisScore)
+  console.log(red1("----------------"))
+}
+var highscore;
+function compare(){
+
+   highscore= 4
+  if (score===highscore)
+  {
+    console.log(yellow1("YAYY!!! CONGRATS YOU HAVE BEATEN THE HIGHEST SCORE"))
+    console.log(magenta("please take a screenshot and send it to me \n"))
+  }
+}
+compare();
+console.log(cyan1("THANK YOU FOR PLAYING"))
+console.log(red("---------------"))
+
+console.log(magenta1("waiting for your valueble feedback"))
+}
+
+else
+{ 
+  console.log(red("SORRY ") + " ,, Raise your " +  cyan("IQ") + " and come again .. ")
+  
+}
